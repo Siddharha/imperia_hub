@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imperia_hub/presentation/resources/color_manager.dart';
 
 TextStyle _getTextStyle(double fontSize, Color color, FontWeight fontWeight) {
   return TextStyle(fontSize: fontSize, color: color, fontWeight: fontWeight);
@@ -18,4 +19,8 @@ ButtonStyle _getButtonStyle(
 
 ButtonStyle getButtonStyleSocial(Color color, Color textColor) {
   return _getButtonStyle(MaterialStateProperty.all(color), textColor);
+}
+
+TextStyle getLoginTitleStyle() {
+  return _getTextStyle(20, ColorManager.normalTextColor, FontWeight.bold);
 }

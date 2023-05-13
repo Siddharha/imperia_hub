@@ -6,7 +6,7 @@ import '../../pages.dart';
 class Routes {
   static const String splashRoute = '/';
   static const String authRoute = '/auth';
-  static const String homeRoute = '/home';
+  static const String landingRoute = '/landing';
   static const String detailsLeadsRoute = '/home/details_leads';
   static const String noteRoute = '/home/details_leads/note';
 }
@@ -23,12 +23,12 @@ class RouteGenerator {
             transitionsBuilder: (_, a, __, c) =>
                 FadeTransition(opacity: a, child: c));
 
-      // case Routes.noteRoute:
-      //   return PageRouteBuilder(
-      //       settings: routeSettings,
-      //       pageBuilder: (context, an1, an2) => const LeadsNotePage(),
-      //       transitionsBuilder: (_, a, __, c) =>
-      //           FadeTransition(opacity: a, child: c));
+      case Routes.landingRoute:
+        return PageRouteBuilder(
+            settings: routeSettings,
+            pageBuilder: (context, an1, an2) => const LandingPage(),
+            transitionsBuilder: (_, a, __, c) =>
+                FadeTransition(opacity: a, child: c));
 
       // MaterialPageRoute(builder: (context) => const CreateLeadsPage());
       default:
