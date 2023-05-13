@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imperia_hub/presentation/landing/components/landing_components.dart';
+import 'package:imperia_hub/presentation/landing/landing_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -8,21 +10,28 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     return w < 600
-        ? const Scaffold(
-            bottomNavigationBar: NavBar(
-              orientation: Axis.horizontal,
-              selectedIndex: 0,
-            ),
-            body: LandingBodyComponent(type: 1),
+        ? Scaffold(
+            bottomNavigationBar:
+                Consumer<LandingViewModel>(builder: (context, vm, _) {
+              return NavBar(
+                orientation: Axis.horizontal,
+                selectedIndex: vm.selectedNavItem,
+                onDestinationSelected: (p) => vm.selectNavItem(p),
+              );
+            }),
+            body: const LandingBodyComponent(type: 1),
           )
-        : const Material(
+        : Material(
             child: Row(
               children: [
-                NavBar(
-                  orientation: Axis.vertical,
-                  selectedIndex: 0,
-                ),
-                Expanded(child: LandingBodyComponent(type: 2))
+                Consumer<LandingViewModel>(builder: (context, vm, _) {
+                  return NavBar(
+                    orientation: Axis.vertical,
+                    selectedIndex: vm.selectedNavItem,
+                    onDestinationSelected: (p) => vm.selectNavItem(p),
+                  );
+                }),
+                const Expanded(child: LandingBodyComponent(type: 2))
               ],
             ),
           );

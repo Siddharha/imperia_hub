@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:imperia_hub/pages.dart';
+import 'package:imperia_hub/presentation/landing/landing_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import '../presentation/resources/routes_manager.dart';
@@ -13,6 +15,7 @@ class ImperiaHubApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SplashViewModel()),
+        ChangeNotifierProvider(create: (_) => LandingViewModel()),
       ],
       child: MaterialApp(
         title: "Imperia Hub",

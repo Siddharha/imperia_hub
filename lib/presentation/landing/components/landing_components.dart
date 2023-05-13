@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key, this.orientation, this.selectedIndex});
+  const NavBar(
+      {super.key,
+      this.orientation,
+      this.selectedIndex,
+      this.onDestinationSelected});
 
   final Axis? orientation;
   final int? selectedIndex;
+  final Function(int)? onDestinationSelected;
   @override
   Widget build(BuildContext context) {
     return orientation == Axis.horizontal
         ? NavigationBar(
             selectedIndex: selectedIndex ?? 0,
-            destinations: getNavDestinations())
+            destinations: getNavDestinations(),
+            onDestinationSelected: onDestinationSelected,
+          )
         : NavigationRail(
             destinations: getNavRailDestinations(),
+            onDestinationSelected: onDestinationSelected,
             selectedIndex: selectedIndex);
   }
 }
