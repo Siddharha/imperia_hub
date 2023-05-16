@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:imperia_hub/presentation/landing/landing_viewmodel.dart';
+import 'package:provider/provider.dart';
+
+import '../../../pages.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar(
@@ -27,25 +31,29 @@ class NavBar extends StatelessWidget {
 
 List<Widget> getNavDestinations() {
   return [
-    NavigationDestination(icon: Icon(Icons.dashboard), label: 'Dashboard'),
-    NavigationDestination(icon: Icon(Icons.account_balance), label: 'Fund'),
-    NavigationDestination(icon: Icon(Icons.event), label: 'Events'),
-    NavigationDestination(
+    const NavigationDestination(
+        icon: Icon(Icons.dashboard), label: 'Dashboard'),
+    const NavigationDestination(
+        icon: Icon(Icons.account_balance), label: 'Fund'),
+    const NavigationDestination(icon: Icon(Icons.event), label: 'Events'),
+    const NavigationDestination(
         icon: Icon(Icons.notifications), label: 'Notifications'),
-    NavigationDestination(icon: Icon(Icons.person), label: 'Profile')
+    const NavigationDestination(icon: Icon(Icons.person), label: 'Profile')
   ];
 }
 
 List<NavigationRailDestination> getNavRailDestinations() {
   return [
-    NavigationRailDestination(
+    const NavigationRailDestination(
         icon: Icon(Icons.dashboard), label: Text('Dashboard')),
-    NavigationRailDestination(
+    const NavigationRailDestination(
         icon: Icon(Icons.account_balance), label: Text('Fund')),
-    NavigationRailDestination(icon: Icon(Icons.event), label: Text('Events')),
-    NavigationRailDestination(
+    const NavigationRailDestination(
+        icon: Icon(Icons.event), label: Text('Events')),
+    const NavigationRailDestination(
         icon: Icon(Icons.notifications), label: Text('Notifications')),
-    NavigationRailDestination(icon: Icon(Icons.person), label: Text('Prifile'))
+    const NavigationRailDestination(
+        icon: Icon(Icons.person), label: Text('Prifile'))
   ];
 }
 
@@ -55,6 +63,21 @@ class LandingBodyComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Consumer<LandingViewModel>(
+      builder: (context, vm, child) {
+        return AnimatedSwitcher(
+            duration: Duration(seconds: 1),
+            child: getScreen(vm.selectedNavItem));
+      },
+    );
+  }
+}
+
+Widget getScreen(int selectedNavItem) {
+  switch (selectedNavItem) {
+    case 0:
+      return DashboardPage();
+    default:
+      return Center(child: Text("Unknown Page"));
   }
 }

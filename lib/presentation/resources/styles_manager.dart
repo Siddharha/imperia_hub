@@ -21,6 +21,11 @@ ButtonStyle getButtonStyleSocial(Color color, Color textColor) {
   return _getButtonStyle(MaterialStateProperty.all(color), textColor);
 }
 
+ButtonStyle getNormalButtonStyle() {
+  return _getButtonStyle(
+      MaterialStateProperty.all(ColorManager.baseColor), Colors.white);
+}
+
 TextStyle getLoginTitleStyle() {
   return _getTextStyle(20, ColorManager.normalTextColor, FontWeight.bold);
 }

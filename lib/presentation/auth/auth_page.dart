@@ -15,10 +15,13 @@ class AuthPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            logo,
-            width: 160,
-            height: 160,
+          Hero(
+            tag: "logo",
+            child: SvgPicture.asset(
+              logo,
+              width: 160,
+              height: 160,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -40,10 +43,11 @@ class AuthPage extends StatelessWidget {
             ),
           ),
           ElevatedButton(
+              style: getNormalButtonStyle(),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, Routes.landingRoute);
               },
-              child: Text("Log In"))
+              child: const Text("Log In"))
         ],
       ),
     );

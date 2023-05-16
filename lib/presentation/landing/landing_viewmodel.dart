@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:imperia_hub/di/di.dart';
 import 'package:imperia_hub/presentation/root/base_viewmodel.dart';
 
@@ -11,5 +12,9 @@ class LandingViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  int get selectedNavItem => navSelectUseCase.getSelectedNavItem();
+  int get selectedNavItem {
+    var pageIndex = navSelectUseCase.getSelectedNavItem();
+
+    return pageIndex;
+  }
 }
