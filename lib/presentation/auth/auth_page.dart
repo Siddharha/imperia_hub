@@ -46,23 +46,24 @@ class AuthPage extends StatelessWidget {
           ),
           ElevatedButton(
               style: getNormalButtonStyle(),
-              onPressed: () async {
-                try {
-                  final credential = await auth.createUserWithEmailAndPassword(
-                    email: "siddhartha@gmail.com",
-                    password: "123456",
-                  );
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                    print('The password provided is too weak.');
-                  } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
-                  }
-                } catch (e) {
-                  print(e);
-                }
+              onPressed: () {
+                // try {
+                //   final credential = await auth.createUserWithEmailAndPassword(
+                //     email: "siddhartha@gmail.com",
+                //     password: "123456",
+                //   );
+                //   print(credential.user?.displayName);
+                // } on FirebaseAuthException catch (e) {
+                //   if (e.code == 'weak-password') {
+                //     print('The password provided is too weak.');
+                //   } else if (e.code == 'email-already-in-use') {
+                //     print('The account already exists for that email.');
+                //   }
+                // } catch (e) {
+                //   print(e);
+                // }
 
-                // Navigator.pushReplacementNamed(context, Routes.landingRoute);
+                Navigator.pushReplacementNamed(context, Routes.landingRoute);
               },
               child: const Text("Log In"))
         ],
