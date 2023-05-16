@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:imperia_hub/main.dart';
 import 'package:imperia_hub/presentation/resources/asset_manager.dart';
 import 'package:imperia_hub/presentation/resources/routes_manager.dart';
 import 'package:imperia_hub/presentation/resources/styles_manager.dart';
@@ -44,8 +46,23 @@ class AuthPage extends StatelessWidget {
           ),
           ElevatedButton(
               style: getNormalButtonStyle(),
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, Routes.landingRoute);
+              onPressed: () async {
+                try {
+                  final credential = await auth.createUserWithEmailAndPassword(
+                    email: "siddhartha@gmail.com",
+                    password: "123456",
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+
+                // Navigator.pushReplacementNamed(context, Routes.landingRoute);
               },
               child: const Text("Log In"))
         ],

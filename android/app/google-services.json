@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1070125448741",
+    "project_id": "imperia-hubx",
+    "storage_bucket": "imperia-hubx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070125448741:android:f0ab316313e198324cc9cc",
+        "android_client_info": {
+          "package_name": "in.creativelizard.imperia_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070125448741-9mmsu16a25hd0l0fvlgaqc6rl3ra186e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxthjW0hhxXRgh7iaEMRs8esYY5E4bo2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070125448741-9mmsu16a25hd0l0fvlgaqc6rl3ra186e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1070125448741-14bnj50o2ulvm04b0bnekl0sk226sar0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.creativelizard.imperiaHub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
