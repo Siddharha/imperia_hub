@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DashbordComponent extends StatelessWidget {
-  const DashbordComponent({super.key, required this.title});
+class HListDashbordComponent extends StatelessWidget {
+  const HListDashbordComponent(
+      {super.key, required this.title, this.hight = 200});
   final String title;
+  final double hight;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,35 +18,33 @@ class DashbordComponent extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 200,
-          child: Expanded(
-            child: ListView(scrollDirection: Axis.horizontal, children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.amber,
-                ),
+          height: hight,
+          child: ListView(scrollDirection: Axis.horizontal, children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 200,
+                width: 200,
+                color: Colors.amber,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.amber,
-                ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: hight,
+                width: 200,
+                color: Colors.amber,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.amber,
-                ),
-              )
-            ]),
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 200,
+                width: 200,
+                color: Colors.amber,
+              ),
+            )
+          ]),
         )
       ],
     );

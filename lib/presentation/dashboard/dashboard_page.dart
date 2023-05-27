@@ -8,12 +8,9 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
-        DashbordComponent(
-          title: "Upcoming Events",
-        ),
-        DashbordComponent(
-          title: "Upcoming Meetings",
+      children: [
+        HListDashbordComponent(
+          title: 'Upcomming Events',
         ),
       ],
     );

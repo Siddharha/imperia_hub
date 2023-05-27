@@ -8,4 +8,6 @@ class Constant {
   static var apiKey = " AIzaSyB2bbLtu4hKw-G1CLD4QzXz3Ojfsrkf5O0";
 
   static var projectId = "imperia-hub";
+
+  static var smallScreenSizeWidth = 600;
 }

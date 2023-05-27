@@ -46,19 +46,21 @@ class AuthPage extends StatelessWidget {
           ),
           ElevatedButton(
               style: getNormalButtonStyle(),
-              onPressed: () {
+              onPressed: () async {
                 // try {
-                //   final credential = await auth.createUserWithEmailAndPassword(
-                //     email: "siddhartha@gmail.com",
-                //     password: "123456",
-                //   );
-                //   print(credential.user?.displayName);
-                // } on FirebaseAuthException catch (e) {
-                //   if (e.code == 'weak-password') {
-                //     print('The password provided is too weak.');
-                //   } else if (e.code == 'email-already-in-use') {
-                //     print('The account already exists for that email.');
-                //   }
+                //   await FirebaseAuth.instance
+                //       .verifyPhoneNumber(
+                //     phoneNumber: '+91 9564751914',
+                //     verificationCompleted: (PhoneAuthCredential credential) {},
+                //     verificationFailed: (FirebaseAuthException e) {
+                //       //print(credential.smsCode);
+                //     },
+                //     codeSent: (String verificationId, int? resendToken) {},
+                //     codeAutoRetrievalTimeout: (String verificationId) {},
+                //   )
+                //       .then((value) {
+                //     print("success");
+                //   });
                 // } catch (e) {
                 //   print(e);
                 // }

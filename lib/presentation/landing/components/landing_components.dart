@@ -77,6 +77,8 @@ Widget getScreen(int selectedNavItem) {
   switch (selectedNavItem) {
     case 0:
       return DashboardPage();
+    case 1:
+      return FundsPage();
     default:
       return Center(child: Text("Unknown Page"));
   }

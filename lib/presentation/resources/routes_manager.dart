@@ -7,8 +7,8 @@ class Routes {
   static const String splashRoute = '/';
   static const String authRoute = '/auth';
   static const String landingRoute = '/landing';
-  static const String detailsLeadsRoute = '/home/details_leads';
-  static const String noteRoute = '/home/details_leads/note';
+  static const String fundsRoute = '/funds';
+  static const String eventsRoute = '/events';
 }
 
 class RouteGenerator {
@@ -27,6 +27,13 @@ class RouteGenerator {
         return PageRouteBuilder(
             settings: routeSettings,
             pageBuilder: (context, an1, an2) => const LandingPage(),
+            transitionsBuilder: (_, a, __, c) =>
+                FadeTransition(opacity: a, child: c));
+
+      case Routes.fundsRoute:
+        return PageRouteBuilder(
+            settings: routeSettings,
+            pageBuilder: (context, an1, an2) => const FundsPage(),
             transitionsBuilder: (_, a, __, c) =>
                 FadeTransition(opacity: a, child: c));
 

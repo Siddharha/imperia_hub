@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:imperia_hub/app/constant.dart';
 import 'package:imperia_hub/presentation/landing/components/landing_components.dart';
 import 'package:imperia_hub/presentation/landing/landing_viewmodel.dart';
+import 'package:imperia_hub/utils/utild.dart';
 import 'package:provider/provider.dart';
 
 class LandingPage extends StatelessWidget {
@@ -8,8 +10,7 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
-    return w < 600
+    return isMobileView(context)
         ? Scaffold(
             bottomNavigationBar:
                 Consumer<LandingViewModel>(builder: (context, vm, _) {
